@@ -20,7 +20,7 @@ xmlfile = "/home/pi/Scripts/out/gettreenodestats.xml"
 alarm_prtg = 0
 
 def GetXMLfromPRTG():
-    url = 'https://172.16.6.110/api/gettreenodestats.xml?username=jcg&passhash=298405090'
+    url = 'https://172.16.6.110/api/gettreenodestats.xml?username=ro&passhash=4165090358'
     if os.path.exists(xmlfile):
         print('Delete XML from Visor')
         os.remove(xmlfile)
