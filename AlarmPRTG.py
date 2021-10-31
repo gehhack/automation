@@ -53,8 +53,7 @@ def LedAlarmPRTG():
     else:
         print("No alarm, cool")
         GPIO.output(pin_led_prtg,led_off)
-    GPIO.cleanup()
-
+    
 GetXMLfromPRTG()
 ParseXML()
 LedAlarmPRTG()
