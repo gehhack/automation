@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 #GEHMERT JC - 14 nov 2020 - Alarm PRTG
 
 import os    # standard library
@@ -12,12 +11,13 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 print ("+-----------------------------------------------------------+")
-print ("|   Gehhack - Supervision                                   |")
+print ("|   Natalya OS by Gehhack - Supervision                     |")
 print ("|   Alarm PRTG                                              |")
 print ("+-----------------------------------------------------------+")
 
 xmlfile = "/home/pi/Scripts/out/gettreenodestats.xml"
 alarm_prtg = 0
+
 
 def GetXMLfromPRTG():
     url = 'https://172.16.6.110/api/gettreenodestats.xml?username=ro&passhash=4165090358'
@@ -38,13 +38,13 @@ def ParseXML():
     #Check if the number is int and not str
     #print(type(alarm_prtg))
     print(alarm_prtg)
-    
+
 def LedAlarmPRTG():
     pin_led_prtg = 18
-    led_on = GPIO.HIGH
-    led_off = GPIO.LOW
+    led_off = GPIO.HIGH
+    led_on = GPIO.LOW
     GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
+    GPIO.setwarnings(True)
     GPIO.setup(pin_led_prtg,GPIO.OUT)
     if (alarm_prtg) > 0:
         print("Alarm")
@@ -53,7 +53,7 @@ def LedAlarmPRTG():
     else:
         print("No alarm, cool")
         GPIO.output(pin_led_prtg,led_off)
-    
+
 GetXMLfromPRTG()
 ParseXML()
 LedAlarmPRTG()
