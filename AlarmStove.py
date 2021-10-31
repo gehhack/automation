@@ -42,7 +42,7 @@ def GetDistance():
         pulse_end = time.time()
     pulse_duration = pulse_end - pulse_start
     distance = pulse_duration * 17165
-    distance = round(distance, 1) 
+    distance = round(distance, 1)
     GPIO.cleanup()
     min = 0
     max = 100
@@ -65,8 +65,8 @@ def GetDistance():
 def LedAlarmPellet():
     print (alarm_pellet)
     pin_led = 17
-    led_on = GPIO.HIGH
-    led_off = GPIO.LOW
+    led_off = GPIO.HIGH
+    led_on = GPIO.LOW
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(pin_led,GPIO.OUT)
@@ -77,12 +77,12 @@ def LedAlarmPellet():
     else:
         print("No alarm pellet, cool")
         GPIO.output(pin_led,led_off)
-
+#    GPIO.cleanup()
 
 
 GetDistance()
 LedAlarmPellet()
-    
+
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
 # Note the following are only used with SPI:
